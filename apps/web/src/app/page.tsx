@@ -46,7 +46,7 @@ export default function Home() {
               <p className="max-w-xl text-[15px] text-[var(--sk-soft)]">
                 Cada card traz o{" "}
                 <code className="font-mono text-[var(--sk-accent)]">SKILL.md</code> completo e o
-                comando que instala. Clique em instalar pra copiar.
+                comando que instala. Dá pra ler em português antes de decidir.
               </p>
             </div>
           </Reveal>

@@ -1,16 +1,18 @@
 # samskills
 
-Catálogo e gerenciador de pacotes para skills de Claude Code.
+Catálogo e gerenciador de pacotes para skills de agente.
 
 Instala uma skill no projeto atual ou na máquina inteira com um comando, em vez de
-criar a pasta e colar o `SKILL.md` na mão.
+criar a pasta e colar o `SKILL.md` na mão. `SKILL.md` é um padrão aberto, então
+funciona com Claude Code, Cursor, OpenAI Codex, OpenCode e qualquer agente que o
+suporte.
 
 > **⚠️ Publicação no npm pendente.** O pacote `samskills` ainda não foi publicado,
 > então os comandos com `npx samskills` / `npm install -g samskills` abaixo ainda
 > não funcionam. Até lá, rode o CLI direto do repositório:
 >
 > ```bash
-> git clone git@github.com:samuel-cardoso/samskills.git
+> git clone https://github.com/samuel-cardoso/samskills.git
 > cd samskills && npm install
 > node packages/cli/bin/sam.js list
 > ```
@@ -34,13 +36,37 @@ npx sam add bora
 Outros comandos:
 
 ```bash
-sam list              # lista tudo que está catalogado
-sam search figma      # busca por nome, descrição ou tag
-sam add <skill> -f    # sobrescreve se já existir
+sam list                       # lista tudo que está catalogado
+sam search figma               # busca por nome, descrição ou tag
+sam agents                     # lista os agentes suportados
+sam add <skill> --agent cursor # instala no diretório de outro agente
+sam add <skill> -f             # sobrescreve se já existir
 ```
 
-Sem `--global`, a skill vai para `.claude/skills/<nome>/` do diretório atual.
-Com `--global`, vai para `~/.claude/skills/<nome>/`.
+Sem `--global`, a skill vai para o diretório do agente dentro do projeto atual.
+Com `--global`, vai para o equivalente no home do usuário.
+
+## Agentes
+
+O destino padrão é `.claude/skills/` porque é o de maior alcance: o Claude Code
+lê nativamente, e Cursor e OpenCode leem por compatibilidade. Para mandar para
+outro diretório, use `--agent`:
+
+```bash
+sam add bora --agent cursor     # .cursor/skills/
+sam add bora --agent codex      # .codex/skills/
+sam add bora --agent opencode   # .opencode/skills/
+sam add bora --agent agents     # .agents/skills/ (padrão neutro)
+sam agents                      # lista todos os destinos
+```
+
+| `--agent` | Projeto            | Global                      | Também lido por   |
+| --------- | ------------------ | --------------------------- | ----------------- |
+| `claude`  | `.claude/skills/`  | `~/.claude/skills/`         | Cursor, OpenCode  |
+| `agents`  | `.agents/skills/`  | `~/.agents/skills/`         | Cursor, OpenCode  |
+| `cursor`  | `.cursor/skills/`  | `~/.cursor/skills/`         | —                 |
+| `codex`   | `.codex/skills/`   | `~/.codex/skills/`          | Cursor            |
+| `opencode`| `.opencode/skills/`| `~/.config/opencode/skills/`| —                 |
 
 ## Estrutura
 
@@ -108,3 +134,12 @@ node packages/cli/bin/sam.js list
       está livre, mas ainda não foi registrado.
 - [ ] Publicar o site (Vercel ou similar) e trocar o link do repositório no hero
       caso o domínio mude.
+
+## Licença
+
+Código proprietário — veja [LICENSE](LICENSE). Você pode ler o código, mas usar,
+copiar, modificar ou redistribuir exige permissão prévia por escrito. Para pedir,
+abra uma [issue](https://github.com/samuel-cardoso/samskills/issues).
+
+As skills em `packages/cli/skills/` declaram a própria licença no frontmatter, que
+prevalece sobre o LICENSE para o conteúdo daquele arquivo.

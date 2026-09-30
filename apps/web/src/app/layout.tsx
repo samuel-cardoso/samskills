@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "samskills",
-  description: "Catálogo pessoal de skills para agentes de código.",
+  description: "Catálogo e gerenciador de pacotes para skills de agente — Claude Code, Cursor, Codex, OpenCode e qualquer agente que leia o padrão SKILL.md.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

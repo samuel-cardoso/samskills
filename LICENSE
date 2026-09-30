@@ -1,0 +1,40 @@
+Copyright (c) 2026 Samuel Cardoso. All rights reserved.
+
+This software and its source code are proprietary.
+
+You may view and read this source code, and fork the repository through
+GitHub's interface for the sole purpose of reading it.
+
+You may NOT, without prior written permission from the copyright holder:
+
+  - use this software, in whole or in part, for any purpose, personal
+    or commercial;
+  - copy, reproduce, publish, distribute or sublicense it;
+  - modify it or create derivative works from it;
+  - incorporate any part of it into another project, including as a
+    dependency, template or reference implementation;
+  - use it to train machine learning models.
+
+To request permission, open an issue at
+https://github.com/samuel-cardoso/samskills/issues or contact the
+copyright holder directly at https://github.com/samuel-cardoso
+
+Permission, when granted, is specific to the requester and the stated
+purpose, and does not extend to anyone else.
+
+No warranty is provided. The software is supplied "as is", without
+warranty of any kind, express or implied, and the copyright holder is
+not liable for any claim, damages or other liability arising from it.
+
+---
+
+Scope note: this license covers the code in this repository (the `sam`
+CLI in packages/cli and the catalog site in apps/web).
+
+The skills themselves — the SKILL.md files under packages/cli/skills —
+each declare their own license in their YAML frontmatter, which governs
+that file. Where a skill declares a license, that declaration takes
+precedence over this file for that skill's content.
+
+Third-party components retain their original licenses, including the
+React Bits components under apps/web/src/components.

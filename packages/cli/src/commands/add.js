@@ -1,7 +1,7 @@
 import fs from "node:fs";
-import os from "node:os";
 import path from "node:path";
 import { SKILLS_DIR, findSkill } from "../registry.js";
+import { AGENTS, DEFAULT_AGENT, agentNames, resolveTargetDir } from "../agents.js";
 
 export function addCommand(slug, options) {
   const skill = findSkill(slug);
@@ -12,10 +12,18 @@ export function addCommand(slug, options) {
     return;
   }
 
-  const baseDir = options.global
-    ? path.join(os.homedir(), ".claude", "skills")
-    : path.join(process.cwd(), ".claude", "skills");
+  const agentName = options.agent ?? DEFAULT_AGENT;
+  const agent = AGENTS[agentName];
 
+  if (!agent) {
+    console.error(
+      `Agente "${agentName}" desconhecido. Disponiveis: ${agentNames().join(", ")}.`
+    );
+    process.exitCode = 1;
+    return;
+  }
+
+  const baseDir = resolveTargetDir(agentName, Boolean(options.global));
   const targetDir = path.join(baseDir, slug);
   const sourceDir = path.join(SKILLS_DIR, slug);
 
@@ -36,5 +44,9 @@ export function addCommand(slug, options) {
   });
 
   const scope = options.global ? "global" : "projeto";
-  console.log(`"${slug}" instalada (${scope}) em ${targetDir}`);
+  console.log(`"${slug}" instalada para ${agent.label} (${scope}) em ${targetDir}`);
+
+  if (agent.alsoReadBy.length > 0) {
+    console.log(`  ${agent.alsoReadBy.join(" e ")} tambem leem esse diretorio.`);
+  }
 }

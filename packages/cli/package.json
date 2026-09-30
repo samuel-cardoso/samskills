@@ -1,7 +1,7 @@
 {
   "name": "samskills",
   "version": "0.1.0",
-  "description": "Gerenciador de pacotes para skills de agentes de codigo (Claude Code, etc).",
+  "description": "Gerenciador de pacotes para skills de agente (Claude Code, Cursor, Codex, OpenCode e outros que leiam SKILL.md).",
   "type": "module",
   "bin": {
     "sam": "./bin/sam.js"
@@ -18,5 +18,5 @@
     "commander": "^12.1.0",
     "gray-matter": "^4.0.3"
   },
-  "license": "MIT"
+  "license": "SEE LICENSE IN LICENSE"
 }

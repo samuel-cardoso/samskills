@@ -38,6 +38,15 @@ const METHODS: Method[] = [
       { cmd: "npx sam add bora", note: "vai pra .claude/skills" },
     ],
   },
+  {
+    id: "agente",
+    label: "outro agente",
+    hint: "Cada agente tem seu diretório — sam agents lista todos.",
+    lines: [
+      { cmd: "npx samskills add bora --agent cursor", note: "vai pra .cursor/skills" },
+      { cmd: "npx samskills agents", note: "lista os destinos suportados" },
+    ],
+  },
 ];
 
 export function InstallPanel() {

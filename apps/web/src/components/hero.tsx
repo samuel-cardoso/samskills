@@ -10,6 +10,8 @@ import DecryptedText from "@/components/DecryptedText";
 import { Reveal } from "@/components/reveal";
 import { InstallPanel } from "@/components/install-panel";
 
+const AGENTS = ["Claude Code", "Cursor", "Codex", "OpenCode"];
+
 interface Stat {
   label: string;
   value: number;
@@ -65,14 +67,28 @@ export function Hero({ stats }: { stats: Stat[] }) {
         </h1>
 
         <Reveal delay={0.1}>
-          <p className="max-w-xl text-[17px] leading-relaxed text-balance text-[var(--sk-soft)]">
-            Gerenciador de pacotes para skills de Claude Code. Um comando instala no projeto
-            ou na máquina inteira — sem copiar e colar{" "}
-            <code className="rounded bg-[var(--sk-surface-2)] px-1.5 py-0.5 font-mono text-[15px] text-[var(--sk-accent)]">
-              SKILL.md
-            </code>{" "}
-            na mão.
-          </p>
+          <div className="flex flex-col items-center gap-4">
+            <p className="max-w-xl text-[17px] leading-relaxed text-balance text-[var(--sk-soft)]">
+              Gerenciador de pacotes para skills de agente. Um comando instala no projeto ou na
+              máquina inteira — sem copiar e colar{" "}
+              <code className="rounded bg-[var(--sk-surface-2)] px-1.5 py-0.5 font-mono text-[15px] text-[var(--sk-accent)]">
+                SKILL.md
+              </code>{" "}
+              na mão.
+            </p>
+            <p className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[13px] text-[var(--sk-faint)]">
+              <span>funciona com</span>
+              {AGENTS.map((agent) => (
+                <span
+                  key={agent}
+                  className="rounded-md border border-[var(--sk-line)] bg-[var(--sk-surface)]/60 px-2 py-0.5 font-mono text-xs text-[var(--sk-soft)]"
+                >
+                  {agent}
+                </span>
+              ))}
+              <span>e qualquer agente que leia o padrão SKILL.md</span>
+            </p>
+          </div>
         </Reveal>
 
         <Reveal delay={0.18} className="flex w-full justify-center">
