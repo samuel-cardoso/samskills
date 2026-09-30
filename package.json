@@ -1,0 +1,8 @@
+{
+  "name": "samskills-monorepo",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}
