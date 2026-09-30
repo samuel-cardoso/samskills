@@ -66,8 +66,8 @@ export function Hero({ stats }: { stats: Stat[] }) {
 
         <Reveal delay={0.1}>
           <p className="max-w-xl text-[17px] leading-relaxed text-balance text-[var(--sk-soft)]">
-            O gerenciador de pacotes das minhas skills de Claude Code. Um comando instala no
-            projeto ou na máquina inteira — sem copiar e colar{" "}
+            Gerenciador de pacotes para skills de Claude Code. Um comando instala no projeto
+            ou na máquina inteira — sem copiar e colar{" "}
             <code className="rounded bg-[var(--sk-surface-2)] px-1.5 py-0.5 font-mono text-[15px] text-[var(--sk-accent)]">
               SKILL.md
             </code>{" "}

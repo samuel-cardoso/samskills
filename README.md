@@ -1,6 +1,6 @@
 # samskills
 
-Catálogo e gerenciador de pacotes das minhas skills de Claude Code.
+Catálogo e gerenciador de pacotes para skills de Claude Code.
 
 Instala uma skill no projeto atual ou na máquina inteira com um comando, em vez de
 criar a pasta e colar o `SKILL.md` na mão.
