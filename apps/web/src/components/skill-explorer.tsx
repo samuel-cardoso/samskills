@@ -36,7 +36,7 @@ export function SkillExplorer({
       type="button"
       onClick={onClick}
       aria-pressed={selected}
-      className={`cursor-pointer rounded-full border px-3.5 py-1.5 text-xs transition-colors ${
+      className={`cursor-pointer rounded-full border px-3.5 py-1.5 text-[13px] transition-colors ${
         selected
           ? "border-[var(--sk-accent-dim)] bg-[var(--sk-accent-soft)] text-[var(--sk-accent)]"
           : "border-[var(--sk-line)] text-[var(--sk-faint)] hover:border-[var(--sk-line-strong)] hover:text-[var(--sk-soft)]"
@@ -56,7 +56,7 @@ export function SkillExplorer({
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Buscar por nome, tag ou descrição..."
             aria-label="Buscar skills"
-            className="w-full rounded-xl border border-[var(--sk-line)] bg-[var(--sk-surface)] py-2.5 pr-9 pl-10 text-sm text-[var(--sk-ink)] transition-colors placeholder:text-[var(--sk-faint)] focus:border-[var(--sk-accent-dim)] focus:outline-none"
+            className="w-full rounded-xl border border-[var(--sk-line)] bg-[var(--sk-surface)] py-2.5 pr-9 pl-10 text-[15px] text-[var(--sk-ink)] transition-colors placeholder:text-[var(--sk-faint)] focus:border-[var(--sk-accent-dim)] focus:outline-none"
           />
           {query ? (
             <button
@@ -78,8 +78,8 @@ export function SkillExplorer({
 
       {filtered.length === 0 ? (
         <div className="rounded-2xl border border-dashed border-[var(--sk-line)] py-20 text-center">
-          <p className="text-sm text-[var(--sk-soft)]">Nenhuma skill encontrada.</p>
-          <p className="mt-1 font-mono text-xs text-[var(--sk-faint)]">
+          <p className="text-[15px] text-[var(--sk-soft)]">Nenhuma skill encontrada.</p>
+          <p className="mt-1 font-mono text-[13px] text-[var(--sk-faint)]">
             tente outro termo ou limpe os filtros
           </p>
         </div>

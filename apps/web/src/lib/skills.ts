@@ -12,7 +12,10 @@ export interface Skill {
   tags: string[];
   author: string;
   version: string;
+  /** The English original — this is what `sam add` installs. */
   source: string;
+  /** Reading-only pt-BR translation, when the skill ships one. Never installed. */
+  sourcePt: string | null;
 }
 
 const SKILLS_DIR = path.join(process.cwd(), "..", "..", "packages", "cli", "skills");
@@ -30,6 +33,9 @@ export function getSkills(): Skill[] {
       const raw = fs.readFileSync(skillPath, "utf8");
       const { data } = matter(raw);
       const meta = data.metadata ?? {};
+
+      const ptPath = path.join(SKILLS_DIR, slug, "SKILL.pt-BR.md");
+      const sourcePt = fs.existsSync(ptPath) ? fs.readFileSync(ptPath, "utf8") : null;
       const skill: Skill = {
         slug,
         name: data.name ?? slug,
@@ -41,6 +47,7 @@ export function getSkills(): Skill[] {
         author: meta.author ?? "unknown",
         version: meta.version ?? "0.0.0",
         source: raw,
+        sourcePt,
       };
       return skill;
     })

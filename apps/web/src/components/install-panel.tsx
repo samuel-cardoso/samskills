@@ -59,7 +59,7 @@ export function InstallPanel() {
               role="tab"
               aria-selected={selected}
               onClick={() => setActive(m.id)}
-              className={`cursor-pointer rounded-lg px-3 py-1.5 font-mono text-xs transition-colors ${
+              className={`cursor-pointer rounded-lg px-3 py-1.5 font-mono text-[13px] transition-colors ${
                 selected
                   ? "bg-[var(--sk-accent-soft)] text-[var(--sk-accent)]"
                   : "text-[var(--sk-faint)] hover:text-[var(--sk-soft)]"
@@ -69,7 +69,7 @@ export function InstallPanel() {
             </button>
           );
         })}
-        <span className="ml-auto hidden pr-2 text-[11px] text-[var(--sk-faint)] sm:block">
+        <span className="ml-auto hidden pr-2 text-xs text-[var(--sk-faint)] sm:block">
           {method.hint}
         </span>
       </div>
@@ -80,14 +80,14 @@ export function InstallPanel() {
             key={line.cmd}
             className="group flex items-center gap-3 rounded-xl border border-transparent bg-[var(--sk-bg)]/60 px-3 py-2.5 transition-colors hover:border-[var(--sk-line)]"
           >
-            <span aria-hidden className="select-none font-mono text-xs text-[var(--sk-accent-dim)]">
+            <span aria-hidden className="select-none font-mono text-sm text-[var(--sk-accent-dim)]">
               $
             </span>
-            <code className="flex-1 overflow-x-auto font-mono text-[13px] whitespace-nowrap text-[var(--sk-ink)] sk-scroll">
+            <code className="flex-1 overflow-x-auto font-mono text-[15px] whitespace-nowrap text-[var(--sk-ink)] sk-scroll">
               {line.cmd}
             </code>
             {line.note ? (
-              <span className="hidden text-[11px] text-[var(--sk-faint)] md:block">
+              <span className="hidden text-xs text-[var(--sk-faint)] md:block">
                 {line.note}
               </span>
             ) : null}
@@ -96,7 +96,7 @@ export function InstallPanel() {
         ))}
       </div>
 
-      <p className="border-t border-[var(--sk-line)] px-4 py-2.5 text-[11px] text-[var(--sk-faint)] sm:hidden">
+      <p className="border-t border-[var(--sk-line)] px-4 py-2.5 text-xs text-[var(--sk-faint)] sm:hidden">
         {method.hint}
       </p>
     </div>

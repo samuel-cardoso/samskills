@@ -44,7 +44,7 @@ export function Hero({ stats }: { stats: Stat[] }) {
               speed={4}
               color="#97a8a2"
               shineColor="#4fd3c4"
-              className="font-mono text-[11px] tracking-wide"
+              className="font-mono text-xs tracking-wide"
             />
           </span>
         </Reveal>
@@ -65,10 +65,10 @@ export function Hero({ stats }: { stats: Stat[] }) {
         </h1>
 
         <Reveal delay={0.1}>
-          <p className="max-w-xl text-[15px] leading-relaxed text-balance text-[var(--sk-soft)]">
+          <p className="max-w-xl text-[17px] leading-relaxed text-balance text-[var(--sk-soft)]">
             O gerenciador de pacotes das minhas skills de Claude Code. Um comando instala no
             projeto ou na máquina inteira — sem copiar e colar{" "}
-            <code className="rounded bg-[var(--sk-surface-2)] px-1.5 py-0.5 font-mono text-[13px] text-[var(--sk-accent)]">
+            <code className="rounded bg-[var(--sk-surface-2)] px-1.5 py-0.5 font-mono text-[15px] text-[var(--sk-accent)]">
               SKILL.md
             </code>{" "}
             na mão.
@@ -100,7 +100,7 @@ export function Hero({ stats }: { stats: Stat[] }) {
             </Magnet>
 
             <a
-              href="https://github.com/samuelcardosodev/samskills"
+              href="https://github.com/samuel-cardoso/samskills"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 rounded-full border border-[var(--sk-line)] px-4 py-2.5 text-sm text-[var(--sk-soft)] transition-colors hover:border-[var(--sk-line-strong)] hover:text-[var(--sk-ink)]"
@@ -115,11 +115,11 @@ export function Hero({ stats }: { stats: Stat[] }) {
           <dl className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 pt-4">
             {stats.map((stat) => (
               <div key={stat.label} className="flex flex-col items-center gap-0.5">
-                <dd className="font-mono text-2xl font-semibold text-[var(--sk-ink)]">
+                <dd className="font-mono text-3xl font-semibold text-[var(--sk-ink)]">
                   <CountUp to={stat.value} duration={1.4} />
                   {stat.suffix ?? ""}
                 </dd>
-                <dt className="text-[11px] tracking-wide text-[var(--sk-faint)] uppercase">
+                <dt className="text-xs tracking-wide text-[var(--sk-faint)] uppercase">
                   {stat.label}
                 </dt>
               </div>

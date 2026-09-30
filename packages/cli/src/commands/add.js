@@ -26,7 +26,14 @@ export function addCommand(slug, options) {
   }
 
   fs.mkdirSync(baseDir, { recursive: true });
-  fs.cpSync(sourceDir, targetDir, { recursive: true, force: true });
+  fs.cpSync(sourceDir, targetDir, {
+    recursive: true,
+    force: true,
+    // Translations (SKILL.<locale>.md) exist only so a human can read the skill
+    // in their own language on the site. The agent always gets the English
+    // original, so they must never be installed.
+    filter: (src) => !/\/SKILL\.[a-z]{2}(-[A-Z]{2})?\.md$/.test(src),
+  });
 
   const scope = options.global ? "global" : "projeto";
   console.log(`"${slug}" instalada (${scope}) em ${targetDir}`);
